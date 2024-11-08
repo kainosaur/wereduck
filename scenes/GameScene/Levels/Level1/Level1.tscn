@@ -1,0 +1,175 @@
+[gd_scene load_steps=15 format=3 uid="uid://ueshtox2y44q"]
+
+[ext_resource type="Script" path="res://scenes/GameScene/Levels/Level1/Level1.gd" id="1_0rqg3"]
+[ext_resource type="PackedScene" uid="uid://csfw25lac81x1" path="res://entities/Player/player.tscn" id="1_c0tfg"]
+[ext_resource type="AudioStream" uid="uid://crge6f4guqvc7" path="res://assets/music/quackinthecity.wav" id="2_esj8x"]
+[ext_resource type="Script" path="res://scenes/GameScene/Levels/Level1/Zone1.gd" id="2_vyfeh"]
+[ext_resource type="PackedScene" uid="uid://cjbftd2fi2yxu" path="res://entities/Cultist/Basic/cultist_basic.tscn" id="3_3kggw"]
+[ext_resource type="PackedScene" uid="uid://cgt8gg4u2b5yq" path="res://entities/Pickup/health_pickup.tscn" id="4_i6gdj"]
+[ext_resource type="Script" path="res://scenes/GameScene/Levels/Level1/Zone2.gd" id="5_5h6tn"]
+[ext_resource type="Script" path="res://scenes/GameScene/Levels/Level1/BossZone.gd" id="6_bqh7q"]
+[ext_resource type="Texture2D" uid="uid://b7lr2lt8bpd7c" path="res://assets/images/maps/level1/street_ALL.png" id="9_minhh"]
+[ext_resource type="Texture2D" uid="uid://p4fki0u5ihru" path="res://assets/images/maps/level1/street_BACKGROUND_ONLY.png" id="10_7ndkk"]
+[ext_resource type="Texture2D" uid="uid://hkpvdoxmr" path="res://assets/images/maps/level1/street_FLOOR_ONLY.png" id="11_rliab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6khwk"]
+size = Vector2(979, 219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p77h1"]
+size = Vector2(979, 219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3orr7"]
+size = Vector2(5118, 502)
+
+[node name="Level1" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_0rqg3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_esj8x")
+volume_db = -4.0
+autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("1_c0tfg")]
+y_sort_enabled = true
+position = Vector2(232, 280)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.2, 1.2)
+limit_left = 0
+limit_top = -360
+limit_right = 5120
+limit_bottom = 360
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="CultistBasic" parent="." instance=ExtResource("3_3kggw")]
+position = Vector2(604, 249)
+
+[node name="Zone1" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1500, 3)
+script = ExtResource("2_vyfeh")
+
+[node name="ZoneArea" type="CollisionShape2D" parent="Zone1"]
+position = Vector2(100, 249)
+shape = SubResource("RectangleShape2D_6khwk")
+
+[node name="EnemySpawn" type="Marker2D" parent="Zone1"]
+position = Vector2(500, 181)
+
+[node name="EnemySpawn2" type="Marker2D" parent="Zone1"]
+position = Vector2(-356, 221)
+
+[node name="EnemySpawn3" type="Marker2D" parent="Zone1"]
+position = Vector2(-92, 213)
+metadata/_edit_group_ = true
+
+[node name="EnemyHolder" type="Node2D" parent="Zone1"]
+y_sort_enabled = true
+position = Vector2(-4, -11)
+
+[node name="CultistBasic" parent="Zone1/EnemyHolder" instance=ExtResource("3_3kggw")]
+y_sort_enabled = true
+position = Vector2(272, 216)
+
+[node name="HealthPickup" parent="." instance=ExtResource("4_i6gdj")]
+position = Vector2(2320, 304)
+
+[node name="Zone2" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2984, 3)
+script = ExtResource("5_5h6tn")
+
+[node name="ZoneArea" type="CollisionShape2D" parent="Zone2"]
+position = Vector2(100, 249)
+shape = SubResource("RectangleShape2D_6khwk")
+
+[node name="EnemySpawn" type="Marker2D" parent="Zone2"]
+position = Vector2(-240, 237)
+
+[node name="EnemySpawn2" type="Marker2D" parent="Zone2"]
+position = Vector2(-520, 261)
+
+[node name="EnemySpawn3" type="Marker2D" parent="Zone2"]
+position = Vector2(464, 261)
+
+[node name="EnemySpawn4" type="Marker2D" parent="Zone2"]
+position = Vector2(680, 261)
+
+[node name="EnemyHolder" type="Node2D" parent="Zone2"]
+y_sort_enabled = true
+position = Vector2(0, -3)
+
+[node name="CultistBasic" parent="Zone2/EnemyHolder" instance=ExtResource("3_3kggw")]
+position = Vector2(224, 256)
+
+[node name="CultistBasic2" parent="Zone2/EnemyHolder" instance=ExtResource("3_3kggw")]
+position = Vector2(-184, 272)
+
+[node name="HealthPickup2" parent="." instance=ExtResource("4_i6gdj")]
+position = Vector2(3816, 304)
+
+[node name="BossZone" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(4600, 0)
+script = ExtResource("6_bqh7q")
+
+[node name="ZoneArea" type="CollisionShape2D" parent="BossZone"]
+position = Vector2(-46, 250.5)
+shape = SubResource("RectangleShape2D_p77h1")
+
+[node name="EnemySpawn" type="Marker2D" parent="BossZone"]
+position = Vector2(-504, 192)
+
+[node name="EnemySpawn2" type="Marker2D" parent="BossZone"]
+position = Vector2(-296, 184)
+
+[node name="EnemySpawn3" type="Marker2D" parent="BossZone"]
+position = Vector2(360, 192)
+
+[node name="EnemySpawn4" type="Marker2D" parent="BossZone"]
+position = Vector2(152, 184)
+
+[node name="EnemyHolder" type="Node2D" parent="BossZone"]
+y_sort_enabled = true
+position = Vector2(-24, 136)
+
+[node name="Background" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(2432, 0)
+texture = ExtResource("9_minhh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+position = Vector2(7272, 8)
+texture = ExtResource("10_7ndkk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(7272, 8)
+texture = ExtResource("11_rliab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+visible = false
+position = Vector2(2561, -108)
+shape = SubResource("RectangleShape2D_3orr7")
+debug_color = Color(0.92899, 3.05149e-05, 0.6625, 0.42)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background"]
+visible = false
+polygon = PackedVector2Array(0, 144, -1, 360, 5120, 360, 5120, 144, 5171, 163, 5171, 401, -53, 392, -47, 141)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+visible = false
+position = Vector2(5080, 240)
+color = Color(0, 0.82, 0.0273333, 1)
+polygon = PackedVector2Array(-40, -96, -40, 112, 40, 112, 40, -96)
+
+[connection signal="body_entered" from="Zone1" to="Zone1" method="_on_body_entered"]
+[connection signal="body_exited" from="Zone1" to="Zone1" method="_on_body_exited"]
+[connection signal="body_entered" from="Zone2" to="Zone2" method="_on_body_entered"]
+[connection signal="body_exited" from="Zone2" to="Zone2" method="_on_body_exited"]
+[connection signal="body_entered" from="BossZone" to="BossZone" method="_on_body_entered"]
+[connection signal="body_exited" from="BossZone" to="BossZone" method="_on_body_exited"]

@@ -14,7 +14,7 @@ func enter():
 	await animator.animation_finished
 	#Reset animation position
 	reset_animation(animation, animation_position)
-	transition.emit(self, "PlayerMoveState")
+	transition.emit(self, "PlayerIdleState")
 
 
 func reset_animation(animation, position):

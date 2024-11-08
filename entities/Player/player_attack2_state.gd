@@ -17,7 +17,7 @@ func enter():
 	#Reset animation position
 	reset_animation(animation, animation_position)
 	if combo == false:
-		transition.emit(self, "PlayerMoveState")
+		transition.emit(self, "PlayerIdleState")
 
 
 func _unhandled_input(event):
@@ -26,6 +26,7 @@ func _unhandled_input(event):
 		await animator.animation_finished
 		combo = false
 		transition.emit(self, "PlayerAttack3State")
+		get_viewport().set_input_as_handled()
 
 func reset_animation(animation, position):
 	animation.track_set_key_value(0, 0, position)

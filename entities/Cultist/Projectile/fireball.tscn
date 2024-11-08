@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwukenqy702ve"]
+
+[ext_resource type="Script" path="res://entities/Cultist/Projectile/fireball.gd" id="1_ty7ig"]
+[ext_resource type="Script" path="res://components/hitbox.gd" id="2_h21p6"]
+[ext_resource type="Texture2D" uid="uid://bn7mhkddauexn" path="res://assets/images/Enemies/Cultistgoon/fireball.png" id="3_eyno3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pelgk"]
+radius = 15.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_al5xy"]
+radius = 9.05539
+
+[node name="Fireball" type="Area2D" groups=["Enemy", "Fireball"]]
+script = ExtResource("1_ty7ig")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_h21p6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_pelgk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_eyno3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 0)
+shape = SubResource("CircleShape2D_al5xy")
+disabled = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

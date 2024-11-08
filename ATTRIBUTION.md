@@ -1,23 +1,29 @@
 # Attribution
-## Collaborators
+## Credits
 
-### Godot Game Template
-Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
-Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
-License: [MIT License](LICENSE.txt)  
+#### Character Art and Menu Design
+[Skippy](https://steamcommunity.com/id/SkippyHippie)
 
-## Tools
-#### Godot
-Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
-Source: [godotengine.org](https://godotengine.org/)  
-License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt) 
+#### Environment Art
+[Kyled00](https://kyle-d.itch.io/)
 
-#### Visual Studio Code
-Author: [Microsoft](https://opensource.microsoft.com/)  
-Source: [github: vscode](https://github.com/microsoft/vscode)  
-License: [MIT License](https://github.com/microsoft/vscode/blob/main/LICENSE.txt)
+#### Level Design
+[Shimzini](https://www.linktr.ee/shimzini)
 
-#### Git
-Author: [Linus Torvalds](https://github.com/torvalds)  
-Source: [git-scm.com](https://git-scm.com/downloads)  
-License: [GNU General Public License version 2](https://opensource.org/licenses/GPL-2.0)
+#### Music
+[Justice Cabantangan](https://phorpho.itch.io/)  
+
+#### Programming
+[Justice Cabantangan](https://phorpho.itch.io/)  
+[Kain Dean](https://kainosaurus.itch.io/)
+
+#### Assets Used
+[Canyon Racer Pixel Font by bbbbbr](https://bbbbbr.itch.io/canyon-racer-fonts)
+[200 Free SFX by Kronbits](https://kronbits.itch.io/freesfx)
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca544b516e1xi"]
+
+[ext_resource type="Script" path="res://ui/player_ui.gd" id="1_er51h"]
+[ext_resource type="Texture2D" uid="uid://cndgtsbh2e6cl" path="res://assets/images/UI/Healthbar.png" id="1_j3022"]
+[ext_resource type="Texture2D" uid="uid://bh8ey3iao4d5n" path="res://assets/images/UI/Sanitymeter.png" id="1_ptjxs"]
+
+[node name="PlayerUi" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_er51h")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="Sprite2D" parent="Control"]
+position = Vector2(173, 65)
+scale = Vector2(7, 7)
+texture = ExtResource("1_j3022")
+hframes = 11
+
+[node name="SanityBar" type="Sprite2D" parent="Control"]
+position = Vector2(136, 146)
+scale = Vector2(5, 5)
+texture = ExtResource("1_ptjxs")
+hframes = 11
