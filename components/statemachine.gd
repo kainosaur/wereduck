@@ -1,14 +1,17 @@
 extends Node
 class_name StateMachine
 
+#You may drag a state into the "initial state" variable 
+#in the inspector to set a defualt state
 @export var initial_state : State 
 
 
-#Track current state and create dictionary with file names as keys and scripts as values
+#Track current state and initialize empty "states" dictionary
 var current_state : State
 var states : Dictionary = {}
 
-#Check for states among children nodes
+#Check for state objects among children nodes, then add them to dictionary 
+#with the name of the node as the key and the node itself as the value
 func _ready():
 	for child in get_children():
 		if child is State:
@@ -37,6 +40,7 @@ func on_state_transition(current_state_name, new_state_name):
 	#Check for new state name in dictionary 
 	var transitioning_to = states.get(new_state_name.to_lower())
 	if !transitioning_to:
+		print("No transition named %s", new_state_name.to_lower())
 		return
 	#Check if current state, if true, call exit on current state
 	if current_state:
